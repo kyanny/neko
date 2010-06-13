@@ -1,0 +1,22 @@
+<!-- ‹Èˆê—— -->
+[% FOR x = data %]
+[% category_id = x.key %]
+[% melos = x.value %]
+<a id="category[% category_id | html %]"></a>
+<div style="color:#FFFFFF;background-color:#fd47bf;text-align:center;">[% category_id | html %]</div>
+[% FOR melo = melos %]
+[% melo.caption | html %]<br />
+[% melo.song_id | html %]<br />
+[% IF melo.bimelo_id ~%]
+„¤<a href="[% melo.bimelo_id | html %]">”üÒÛ</a><br />
+[% END ~%]
+[% IF melo.biolgol_id ~%]
+„¤<a href="[% melo.biolgol_id | html %]">”üµÙºÞ°Ù</a><br />
+[% END ~%]
+[% IF melo.tyomelo_id ~%]
+„¤<a href="[% melo.tyomelo_id | html %]">’´ÒÛ</a><br />
+[% END ~%]
+[% melo.singer_id | html %]<br />
+<br />
+[% END ~%]
+[% END ~%]
