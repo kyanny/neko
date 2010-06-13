@@ -6,6 +6,7 @@ use CGI::Application::Plugin::TT;
 
 use Text::CSV_XS;
 use Template;
+use Encode;
 use Data::Dumper;
 
 sub setup {
@@ -25,6 +26,7 @@ sub do_neko {
     # extract CSV
     my @rows;
     for my $line (split /\r\n|\r|\n/, $data) {
+        Encode::from_to($line, 'utf-8', 'shift_jis');
         $csv->parse($line);
         my @cols = $csv->fields;
         push @rows, \@cols;
